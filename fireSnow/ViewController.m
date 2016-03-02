@@ -53,11 +53,14 @@
     double scale = 1/random()%100 + 1.0;
     //雪花移动速度
     double speed = 1/random()%100 + 1.0;
+    //雪花的初始位置与大小
     snow.frame = CGRectMake(x, -60, 30 * scale, 30 * scale);
+    //雪花动画
     [UIView animateWithDuration:5 * speed animations:^{
         int x2 = round(random()%screenW);
         snow.frame = CGRectMake(x2, 600, 50 * scale, 50 * scale);
     } completion:^(BOOL finished) {
+        //动画完成删除视图
         [snow removeFromSuperview];
     }];
     
